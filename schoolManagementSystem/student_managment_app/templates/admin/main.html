@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../images/favicon.ico">
+
+    <title>Thmepixelbd Admin - Dashboard Blank Page </title>
+
+ {% include 'admin/partials/css.html' %}
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+   {% include 'admin/partials/header.html' %}
+    <!-- Control Sidebar Toggle Button -->
+
+    <!-- Left side column. contains the sidebar -->
+   {% include 'admin/partials/sidebar.html' %}
+
+    <!-- =============================================== -->
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        {% block body %}
+        {% endblock %}
+        <!-- Content Header (Page header) -->
+
+    </div>
+    <!-- /.content-wrapper -->
+{% include 'admin/partials/footer.html' %}
+
+    <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+{% include "admin/partials/js.html" %}
+
+</body>
+
+</html>

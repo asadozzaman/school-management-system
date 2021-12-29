@@ -1,0 +1,59 @@
+{% load static %}
+
+<aside class="main-sidebar">
+    <!-- sidebar -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+
+        <!-- sidebar menu  -->
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">MAIN NAVIGATION</li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Class</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{% url 'student_managment_app:classAdd' %}"><i class="fa fa-circle-o"></i> Add</a></li>
+                    <li><a href="{% url 'student_managment_app:classShow' %}"><i class="fa fa-circle-o"></i> Show All</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+
+                <ul class="treeview-menu">
+                    <li><a href="index.html"><i class="fa fa-circle-o"></i> Index</a></li>
+                    <li><a href="advanced.html"><i class="fa fa-circle-o"></i> advanced</a></li>
+                    <li><a href="calendar.html"><i class="fa fa-circle-o"></i> calendar</a></li>
+                    <li><a href="login.html"><i class="fa fa-circle-o"></i> login</a></li>
+                    <li><a href="register.html"><i class="fa fa-circle-o"></i> register</a></li>
+                    <li><a href="profile.html"><i class="fa fa-circle-o"></i> profile</a></li>
+                    <li><a href="simple.html"><i class="fa fa-circle-o"></i> simple</a></li>
+                    <li><a href="data.html"><i class="fa fa-circle-o"></i> data</a></li>
+                    <li><a href="form-validation.html"><i class="fa fa-circle-o"></i> form-validation</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+    <div class="sidebar-footer">
+        <!-- item-->
+        <a href="#" class="link" data-toggle="tooltip" title="" data-original-title="Settings"><i
+                class="fa fa-cog fa-spin"></i></a>
+        <!-- item-->
+        <a href="#" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i
+                class="fa fa-envelope"></i></a>
+        <!-- item-->
+        <a href="#" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i
+                class="fa fa-power-off"></i></a>
+    </div>
+</aside>
