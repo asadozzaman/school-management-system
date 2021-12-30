@@ -20,11 +20,14 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from student_managment_app import views
+from accounts import views
 from schoolManagementSystem import settings
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
-    path('class/', include('student_managment_app.urls')),
+    path('student_managment_app/', include('student_managment_app.urls')),
 
-     path('', views.frontpage),
+     path('', views.frontpage,name='frontpage'),
 ]

@@ -3,10 +3,9 @@
 
 {% block body %}
 
-<!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Blank page
+
     </h1>
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -33,27 +32,35 @@
             </div>
         </div>
         <div class="box-body">
-            This is form
-            <form method="POST" class="post-form" action="{% url 'student_managment_app:classAdd' %}">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label>Class Name </label>
-                    <input type="text" class="form-control" name="class_name" placeholder="Enter Class">
-                </div>
-                <div class="form-group">
-                    <label>Class Numeric </label>
-                    <input type="text" class="form-control" name="class_numeric" placeholder="Enter Class">
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-1 col-form-label"></label>
-                    <div class="col-sm-4">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </div>
-            </form>
+            This is some text within a card block.
+
+
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <tr>
+                        <th>#ID</th>
+                        <th>Class Name</th>
+                        <th>Class Numeric</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for MyClassName in MyClassNames %}
+                    <tr>
+                        <td>{{MyClassName.id}}</td>
+                        <td> {{MyClassName.class_name}}</td>
+                        <td><span class="badge bg-blue">{{MyClassName.class_numeric}}</span></td>
+                        <td>
+                            <a class="btn btn-warning" href="{% url 'student_managment_app:edit' MyClassName.id %}"><span
+                                    class="glyphicon glyphicon-pencil">Edit</span></a>
+                            <a class="btn btn-danger" href="/delete/{{ MyClassName.id }}">Delete</a>
+
+
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
-
-
         <!-- /.box-body -->
         <div class="box-footer">
             Footer
@@ -63,6 +70,7 @@
     <!-- /.box -->
 
 </section>
+
 <!-- /.content -->
 
 {% endblock %}

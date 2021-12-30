@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from student_managment_app.models import MyClassName
 from student_managment_app.forms import MyClassNameForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
 
 from django.shortcuts import (get_object_or_404,
                               render,
@@ -11,14 +13,11 @@ from django.shortcuts import (get_object_or_404,
 # def showDemoPage(request):
 #     return render(request,"demo.html")
 
-def allRegister(request):
-    return render(request,"register.html")
 
 
-def frontpage(request):
-    return render(request,"frontpage.html")
-
-
+def logout_user(request):
+    logout(request)
+    return HttpResponseRedirect("/")
 
 def showDemoPage(request):
     MyClassNames=MyClassName.objects.all()
@@ -67,26 +66,6 @@ def edit(request, id):
     # add form dictionary to context
     context["form"] = form
     return render(request, "admin/class/edit.html", context)
-
-
-# def update(request, id):
-#     context = {}
-#
-#     # fetch the object related to passed id
-#     obj = get_object_or_404(MyClassName, id=id)
-#
-#     # pass the object as instance in form
-#     form = MyClassNameForm(request.POST or None, instance=obj)
-#
-#     # save the data from the form and
-#     # redirect to detail_view
-#     if form.is_valid():
-#         form.save()
-#         return HttpResponseRedirect("/" + id)
-#
-#     # add form dictionary to context
-#     context["form"] = form
-#     return render(request, "update_view.html", context)
 
 
 def destroy(request, id):

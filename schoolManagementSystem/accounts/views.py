@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponse, HttpResponseRedirect
 
 from django.views.generic import CreateView
 
@@ -9,6 +10,9 @@ from .models import User
 
 
 # Create your views here.
+
+def frontpage(request):
+    return render(request,"frontpage.html")
 
 
 def SingUp(request):
@@ -120,13 +124,13 @@ def user_login(request):
             print('rrrrrrr')
             if user.is_authenticated and user.is_admin:
                 print('adminnnnnnn')
-                return redirect('admin')  # Go to student home
+                return redirect('student_managment_app:classShow')  # Go to student home
             elif user.is_authenticated and user.is_headmaster:
-                return redirect('headmaster')  # Go to teacher home
+                return redirect('student_managment_app:classShow')  # Go to teacher home
             elif user.is_authenticated and user.is_teacher:
-                return redirect('teacher')  # Go to teacher home
+                return redirect('student_managment_app:sectionShow')  # Go to teacher home
             elif user.is_authenticated and user.is_student:
-                return redirect('student')  # Go to teacher home
+                return redirect('student_managment_app:classShow')  # Go to teacher home
         else:
             print('tttttt')
             return redirect('singup')

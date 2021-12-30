@@ -1,11 +1,6 @@
 from django import forms
-from student_managment_app.models import MyClassName
+from student_managment_app.models import *
 
-
-class MyClassNameForm(forms.ModelForm):
-    class Meta:
-        model = MyClassName
-        fields = "__all__"
 
 
 # creating a form
@@ -17,12 +12,30 @@ class MyClassNameForm(forms.ModelForm):
 
         # specify fields to be used
         fields = [
-            "teacher_id",
             "class_name",
             "class_numeric",
         ]
         widgets = {
-            'teacher_id': forms.Select(attrs={'class': 'form-control'}),
             'class_name': forms.TextInput(attrs={'class': 'form-control'}),
             'class_numeric': forms.TextInput(attrs={'class': 'form-control'}),
             }
+
+class SectionNameForm(forms.ModelForm):
+    # create meta class
+    class Meta:
+        # specify model to be used
+        model = SectionName
+
+        # specify fields to be used
+        fields = [
+            "section_name",
+            "class_name_id",
+            "capacity",
+        ]
+        widgets = {
+            'section_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'class_name_id': forms.Select(attrs={'class': 'form-control'}),
+            'capacity': forms.TextInput(attrs={'class': 'form-control'}),
+            }
+
+

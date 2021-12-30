@@ -8,20 +8,12 @@
         <!-- sidebar menu  -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-files-o"></i>
-                    <span>Class</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{% url 'student_managment_app:classAdd' %}"><i class="fa fa-circle-o"></i> Add</a></li>
-                    <li><a href="{% url 'student_managment_app:classShow' %}"><i class="fa fa-circle-o"></i> Show All</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
+            {% if user.is_authenticated %}
+            <li class="header"> LOGOUT</li>
+             {% else %}
+            <li class="header"> LOGIN </li>
+            {% endif %}
+             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     <span class="pull-right-container">
@@ -41,7 +33,32 @@
                     <li><a href="form-validation.html"><i class="fa fa-circle-o"></i> form-validation</a></li>
                 </ul>
             </li>
-
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Class</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{% url 'student_managment_app:classAdd' %}"><i class="fa fa-circle-o"></i> Add</a></li>
+                    <li><a href="{% url 'student_managment_app:classShow' %}"><i class="fa fa-circle-o"></i> Show All</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Section</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{% url 'student_managment_app:sectionAdd' %}"><i class="fa fa-circle-o"></i> Add</a></li>
+                    <li><a href="{% url 'student_managment_app:sectionShow' %}"><i class="fa fa-circle-o"></i> Show All</a></li>
+                </ul>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->
@@ -53,7 +70,7 @@
         <a href="#" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i
                 class="fa fa-envelope"></i></a>
         <!-- item-->
-        <a href="#" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i
+        <a href="{% url 'student_managment_app:logout' %}" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i
                 class="fa fa-power-off"></i></a>
     </div>
 </aside>

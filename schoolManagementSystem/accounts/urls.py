@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import SingUp,AdminSignUpView,TeacherSignUpView,HeadmasterSignUpView,StudentSignUpView,ParentSignUpView,profilepage,student,teacher,user_login,admin,headmaster
+from .views import *
 from django.contrib.auth import views as authentication_views
 
 
@@ -15,7 +15,7 @@ urlpatterns = [
   path('headmaster/',headmaster,name='headmaster'),
   path('student/',student,name='student'),
   path('teacher/',teacher,name='teacher'),
-  path('logout/', authentication_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
+  # path('logout/', authentication_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
   path('login/', user_login, name='login'),
 
 ]
